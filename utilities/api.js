@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  NativeModules,
+  NativeEventEmitter, 
   Platform
 } from 'react-native';
 // import { PaymentRequest } from 'react-native-payments'; (USING GLOBAL)
@@ -32,10 +39,7 @@ var api = {
             }
         };
 
-        // Options (isn't required)
-        const OPTIONS = {};
-
-        const ANDROID_METHOD_DATA = {
+        let ANDROID_METHOD_DATA = {
             supportedMethods: ['android-pay'],
               data: {
                 supportedNetworks: ['visa', 'mastercard', 'amex'],
@@ -45,13 +49,16 @@ var api = {
                 tokenizationType: 'NETWORK_TOKEN',
                 parameters: {
                 publicKey: 'BC9u7amr4kFD8qsdxnEfWV7RPDR9v4gLLkx3jfyaGOvxBoEuLZKE0Tt5O/2jMMxJ9axHpAZD2Jhi4E74nqxr944='
+              }
             }
           }
         }
-      }
+
+        // Options (isn't required)
+        let OPTIONS = {};
 
       // Supported Payment Methods
-      const METHOD_DATA = [
+      let METHOD_DATA = [
         ANDROID_METHOD_DATA,
         // add here other supported payment methods (APPLE_METHOD_DATA, etc..)
       ];
